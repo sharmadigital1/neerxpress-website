@@ -1,4 +1,4 @@
-# neerxpress.com.np
+# neerxpress
 Neerxpress
 Neerexpress
 courier service
