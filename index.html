@@ -791,14 +791,105 @@
                 </div>
             </div>
 
-            <div class="contact-form">
-                <h3>Book Your Parcel</h3>
-                <form onsubmit="event.preventDefault(); alert('Booking Request Sent Successfully!');">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="text" placeholder="Phone Number" required>
-                    <input type="email" placeholder="Email Address">
-                    <textarea rows="5" placeholder="Parcel Details" required></textarea>
-                    <button type="submit">Send Booking Request</button>
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Your Parcel</title>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f4f6ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.form-box{
+    background:white;
+    padding:30px;
+    width:350px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+input, textarea{
+    width:100%;
+    margin-bottom:15px;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#e8f0ff;
+    font-size:14px;
+    outline:none;
+}
+
+textarea{
+    height:100px;
+    resize:none;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#ff2d75;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#e6005c;
+}
+</style>
+
+</head>
+<body>
+
+<div class="form-box">
+
+    <h2>Book Your Parcel</h2>
+
+    <input type="text" placeholder="Your Name" id="name">
+    <input type="text" placeholder="Phone Number" id="phone">
+    <input type="email" placeholder="Email Address" id="email">
+    <textarea placeholder="Parcel Details" id="message"></textarea>
+
+    <button onclick="sendBooking()">Send Booking Request</button>
+
+</div>
+
+<script>
+function sendBooking(){
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    let text = 
+`New Booking Request:
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Message: ${message}`;
+
+    let whatsappURL = "https://wa.me/9779709392891?text=" + encodeURIComponent(text);
+
+    window.open(whatsappURL, "_blank");
+}
+</script>
+
+</body>
+</html>
                 </form>
             </div><!DOCTYPE html>
 <html lang="en">
