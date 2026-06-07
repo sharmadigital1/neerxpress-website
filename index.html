@@ -661,16 +661,72 @@
             </div>
         </div>
     </section>
-<!-- Popup Ad 1 -->
-<div id="popup1" class="popup-ad">
-    <span class="close-btn" onclick="closePopup('popup1')">&times;</span>
-    <img src="Neerxpressoffer.png" alt="Offer 1">
+<!-- Popup 1 -->
+<div id="popup1" class="popup-overlay">
+    <div class="popup-content">
+        <span class="close-btn" onclick="showSecondPopup()">&times;</span>
+        <img src="Neerxpressoffer.png" alt="NeerXpress Offer">
+    </div>
 </div>
 
-<!-- Popup Ad 2 -->
-<div id="popup2" class="popup-ad" style="display:none;">
-    <span class="close-btn" onclick="closePopup('popup2')">&times;</span>
-    <img src="Neerxpresspost" alt="Neerxpress Post">
+<!-- Popup 2 -->
+<div id="popup2" class="popup-overlay" style="display:none;">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closeSecondPopup()">&times;</span>
+        <img src="Neerxpresspost.jpg" alt="NeerXpress Post">
+    </div>
+</div>
+
+<style>
+.popup-overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.popup-content{
+    background:#fff;
+    padding:10px;
+    border-radius:10px;
+    width:90%;
+    max-width:700px;
+    position:relative;
+}
+
+.popup-content img{
+    width:100%;
+    border-radius:8px;
+    display:block;
+}
+
+.close-btn{
+    position:absolute;
+    top:5px;
+    right:12px;
+    font-size:32px;
+    font-weight:bold;
+    cursor:pointer;
+    color:#000;
+}
+</style>
+
+<script>
+function showSecondPopup() {
+    document.getElementById("popup1").style.display = "none";
+    document.getElementById("popup2").style.display = "flex";
+}
+
+function closeSecondPopup() {
+    document.getElementById("popup2").style.display = "none";
+}
+</script>
 </div>
 
 <style>
