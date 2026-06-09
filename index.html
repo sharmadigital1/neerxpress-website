@@ -710,114 +710,66 @@
         </div>
     </section>
 
-    <!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Gallery</title>
+  <title>Gallery</title>
   <style>
-    /* Reset and page background styling */
     body {
       margin: 0;
       padding: 40px 20px;
-      background-color: #f4f6f9; /* Light grey backdrop from screenshot */
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f9;
+      font-family: sans-serif;
     }
-
-    /* Heading for the Gallery */
-    .gallery-title {
-      text-align: center;
-      color: #333;
-      margin-bottom: 30px;
-      font-size: 2rem;
-    }
-
-    /* The Grid Gallery Container */
     .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px; /* Spacing between grid items */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
       max-width: 1200px;
       margin: 0 auto;
+      flex-wrap: wrap; /* Keeps it responsive if viewed on mobile */
     }
-
-    /* Individual Gallery Item Wrapper */
     .gallery-item {
-      position: relative;
       background-color: #ffffff;
-      border-radius: 16px; /* Smooth curved edges */
-      overflow: hidden; /* Keeps zoomed image inside the borders */
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06); /* Soft drop shadow */
-      aspect-ratio: 1 / 1; /* Makes items square like a standard gallery grid */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 20px;
+      width: 320px;
+      height: 320px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      position: relative;
     }
-
-    /* Hover effect on the card wrapper */
-    .gallery-item:hover {
-      transform: translateY(-5px); /* Lifts card up slightly */
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12); /* Deepens shadow on hover */
-    }
-
-    /* Core Image Styling */
     .gallery-item img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Crops nicely without stretching */
+      object-fit: cover;
       display: block;
-      transition: transform 0.5s ease; /* Smooth zoom duration */
-    }
-
-    /* Zooms image cleanly when card is hovered */
-    .gallery-item:hover img {
-      transform: scale(1.06);
-    }
-
-    /* Subtle Overlay Label (Optional: Shows up on Hover) */
-    .gallery-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
-      color: white;
-      padding: 20px;
-      font-size: 1.1rem;
-      font-weight: 500;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .gallery-item:hover .gallery-overlay {
-      opacity: 1; /* Fades label in on hover */
     }
   </style>
 </head>
 <body>
 
-  <h2 class="gallery-title">Our Features</h2>
-
   <div class="gallery-container">
     
-    <!-- Gallery Item 1 -->
+    <!-- Explicit relative paths using "./" to force GitHub Pages to look in the current folder -->
     <div class="gallery-item">
-      <img src="International.png" alt="International Delivery">
-      <div class="gallery-overlay">International Delivery</div>
+      <img src="./International.png" alt="International Delivery">
     </div>
 
-    <!-- Gallery Item 2 -->
     <div class="gallery-item">
-      <img src="online.png" alt="Online Delivery - NeerXpress">
-      <div class="gallery-overlay">Online Delivery</div>
+      <img src="./online.png" alt="Online Delivery">
     </div>
 
-    <!-- Gallery Item 3 -->
     <div class="gallery-item">
-      <img src="Vendor.png" alt="Vendor Partner">
-      <div class="gallery-overlay">Vendor Partner</div>
+      <img src="./Vendor.png" alt="Vendor Partner">
     </div>
 
   </div>
+
+</body>
+</html>
 
 </body>
 </html>
