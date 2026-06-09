@@ -599,20 +599,7 @@
   <!DOCTYPE html>
 <html>
 <head>
-    <title>NeerXpress Video</title>
-    <style>
-        body{
-            margin:0;
-            padding:0;
-        }
-
-        video{
-            width:100%;
-            height:auto;
-            display:block;
-        }
-    </style>
-</head>
+    
 </body>
     <!-- STATS SECTION -->
     <section class="stats">
@@ -638,14 +625,42 @@
                 <p>Safe Parcel Handling</p>
             </div>
         </div>
-    </section>
+  <!-- MIDDLE BANNER SECTION -->
 <section class="middle-banner">
     <div class="banner-container">
-        <img src="International.png" alt="Offer 1">
-        <img src="Online.png" alt="Offer 2">
-        <img src="Vendor.png" alt="Offer 3">
+        <img src="International.png" alt="International Delivery">
+        <img src="Online.png" alt="Online Services">
+        <img src="Vendor.png" alt="Vendor Partner">
     </div>
 </section>
+
+<style>
+.middle-banner {
+    padding: 40px 20px;
+    background: #f8f9fa;
+}
+
+.banner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.banner-container img {
+    width: 350px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.banner-container img:hover {
+    transform: scale(1.05);
+}
+</style>
     <!-- SERVICES SECTION -->
     <section class="services" id="services">
         <div class="section-title">
