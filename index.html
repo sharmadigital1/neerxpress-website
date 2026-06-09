@@ -1,264 +1,970 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>NeerXpress Logistic & Delivery</title>
-
-<!-- ✅ FAVICON FULL SETUP -->
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="Site.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeerXpress Logistic & Delivery</title>
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="48x48" href="Site.png">
-<link rel="icon" type="image/png" sizes="192x192" href="Site.png">
 <link rel="apple-touch-icon" sizes="180x180" href="Site.png">
+<link rel="shortcut icon" href="Site.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<!-- FONTS -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:#f5f8fb;
+            color:#111;
+            overflow-x:hidden;
+        }
+
+        :root{
+            --pink:#ff0f6d;
+            --teal:#00a8a8;
+            --dark:#081828;
+            --white:#ffffff;
+            --light:#f5f8fb;
+        }
+
+        /* HEADER */
+        header{
+            width:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:999;
+            background:rgba(8,24,40,0.95);
+            backdrop-filter:blur(10px);
+            padding:12px 8%;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo-container{
+            display:flex;
+            align-items:center;
+            text-decoration:none;
+        }
+
+        .logo-img{
+            height:55px;
+            width:auto;
+            object-contain:fit;
+        }
+
+        nav a{
+            text-decoration:none;
+            color:white;
+            margin-left:30px;
+            font-size:16px;
+            font-weight:500;
+            transition:0.3s;
+        }
+
+        nav a:hover{
+            color:var(--pink);
+        }
+
+        /* HERO */
+        .hero{
+            width:100%;
+            min-height:100vh;
+            background:
+                linear-gradient(rgba(8,24,40,0.82),rgba(8,24,40,0.85)),
+                url('logistic.png.jpg');
+            background-size:cover;
+            background-position:center;
+            display:flex;
+            align-items:center;
+            padding:140px 8% 60px;
+        }
+
+        .hero-content{
+            max-width:1200px;
+            margin:auto;
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:50px;
+            align-items:center;
+        }
+
+        .hero-text h4{
+            color:var(--pink);
+            font-size:22px;
+            margin-bottom:15px;
+        }
+
+        .hero-text h1{
+            font-size:64px;
+            line-height:1.1;
+            font-weight:800;
+            color:white;
+            margin-bottom:20px;
+        }
+
+        .hero-text h1 span{
+            color:var(--teal);
+        }
+
+        .hero-text p{
+            font-size:18px;
+            line-height:1.8;
+            color:#ddd;
+            margin-bottom:35px;
+        }
+
+        .hero-buttons{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+            padding:15px 35px;
+            text-decoration:none;
+            border-radius:50px;
+            font-size:17px;
+            font-weight:600;
+            transition:0.3s;
+            display:inline-flex;
+            align-items:center;
+            gap:10px;
+            border:none;
+            cursor:pointer;
+        }
+
+        .btn-primary{
+            background:var(--pink);
+            color:white;
+        }
+
+        .btn-primary:hover{
+            background:var(--teal);
+            transform:translateY(-4px);
+        }
+
+        .btn-secondary{
+            border:2px solid white;
+            color:white;
+            background:transparent;
+        }
+
+        .btn-secondary:hover{
+            background:white;
+            color:var(--dark);
+            transform:translateY(-4px);
+        }
+
+        .hero-image{
+            text-align:center;
+        }
+
+        .hero-image img{
+            width:100%;
+            max-width:480px;
+            border-radius:20px;
+            filter:drop-shadow(0 10px 30px rgba(0,0,0,0.5));
+        }
+
+        /* STATS */
+        .stats{
+            padding:60px 8%;
+            background:white;
+        }
+
+        .stats-wrapper{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:25px;
+        }
+
+        .stat-card{
+            background:var(--light);
+            padding:35px;
+            text-align:center;
+            border-radius:20px;
+            transition:0.3s;
+        }
+
+        .stat-card:hover{
+            transform:translateY(-8px);
+            box-shadow:0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .stat-card i{
+            font-size:40px;
+            color:var(--pink);
+            margin-bottom:15px;
+        }
+
+        .stat-card h2{
+            font-size:38px;
+            margin-bottom:10px;
+            color:var(--dark);
+        }
+
+        .stat-card p{
+            color:#555;
+        }
+
+        /* SERVICES */
+        .services{
+            padding:100px 8%;
+            background:#eef4f7;
+        }
+
+        .section-title{
+            text-align:center;
+            margin-bottom:70px;
+        }
+
+        .section-title h2{
+            font-size:52px;
+            color:var(--dark);
+            margin-bottom:15px;
+        }
+
+        .section-title h2 span{
+            color:var(--pink);
+        }
+
+        .section-title p{
+            font-size:18px;
+            color:#666;
+        }
+
+        .service-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:30px;
+        }
+
+        .service-card{
+            background:white;
+            padding:40px 30px;
+            border-radius:24px;
+            transition:0.4s;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .service-card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 20px 45px rgba(0,0,0,0.1);
+        }
+
+        .service-card::before{
+            content:'';
+            position:absolute;
+            width:100%;
+            height:5px;
+            background:linear-gradient(to right,var(--pink),var(--teal));
+            left:0;
+            top:0;
+        }
+
+        .service-card i{
+            font-size:50px;
+            margin-bottom:20px;
+            color:var(--teal);
+        }
+
+        .service-card h3{
+            font-size:24px;
+            margin-bottom:15px;
+            color:var(--dark);
+        }
+
+        .service-card p{
+            line-height:1.8;
+            color:#666;
+        }
+
+        /* ABOUT */
+        .about{
+            padding:100px 8%;
+            background:white;
+        }
+
+        .about-wrapper{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:60px;
+            align-items:center;
+        }
+
+        .about-image img{
+            width:100%;
+            border-radius:30px;
+            box-shadow:0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .about-text h2{
+            font-size:50px;
+            margin-bottom:25px;
+            color:var(--dark);
+        }
+
+        .about-text h2 span{
+            color:var(--teal);
+        }
+
+        .about-text p{
+            font-size:17px;
+            line-height:1.9;
+            margin-bottom:20px;
+            color:#555;
+        }
+
+        .about-list{
+            margin-top:25px;
+        }
+
+        .about-list div{
+            margin-bottom:15px;
+            font-size:17px;
+            font-weight:500;
+            color:var(--dark);
+        }
+
+        .about-list i{
+            color:var(--pink);
+            margin-right:10px;
+        }
+
+        /* CTA */
+        .cta{
+            padding:90px 8%;
+            background:linear-gradient(rgba(255,15,109,0.9),rgba(0,168,168,0.88));
+            background-size:cover;
+            background-position:center;
+            text-align:center;
+            color:white;
+        }
+
+        .cta h2{
+            font-size:54px;
+            margin-bottom:20px;
+        }
+
+        .cta p{
+            font-size:20px;
+            margin-bottom:35px;
+        }
+
+        /* CONTACT */
+        .contact{
+            padding:100px 8%;
+            background:var(--dark);
+            color:white;
+        }
+
+        .contact-wrapper{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:50px;
+        }
+
+        .contact-info h2{
+            font-size:48px;
+            margin-bottom:25px;
+        }
+
+        .contact-info p{
+            margin-bottom:18px;
+            font-size:18px;
+            color:#ddd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info i{
+            color:var(--pink);
+            width: 20px;
+        }
+
+        .social-links{
+            margin-top:30px;
+            display:flex;
+            gap:18px;
+        }
+
+        .social-links a{
+            width:50px;
+            height:50px;
+            background:rgba(255,255,255,0.08);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            border-radius:50%;
+            text-decoration:none;
+            color:white;
+            font-size:20px;
+            transition:0.3s;
+        }
+
+        .social-links a:hover{
+            background:var(--pink);
+            transform:translateY(-5px);
+        }
+
+        .contact-form{
+            background:white;
+            padding:40px;
+            border-radius:25px;
+        }
+
+        .contact-form h3{
+            font-size:30px;
+            margin-bottom:25px;
+            color:var(--dark);
+        }
+
+        .contact-form input,
+        .contact-form textarea{
+            width:100%;
+            padding:16px;
+            margin-bottom:18px;
+            border:none;
+            background:#eef3f6;
+            border-radius:12px;
+            font-size:15px;
+            color: #333;
+        }
+
+        .contact-form button{
+            width:100%;
+            padding:16px;
+            background:var(--pink);
+            color:white;
+            border:none;
+            border-radius:12px;
+            font-size:18px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        .contact-form button:hover{
+            background:var(--teal);
+        }
+
+        /* BRANCHES HINT TABLE */
+        .branch-table-container {
+            margin-top: 30px;
+            overflow-x: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .branch-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        .branch-table th {
+            background: var(--dark);
+            color: white;
+            padding: 16px;
+            font-weight: 600;
+        }
+
+        .branch-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #eee;
+            color: #444;
+        }
+
+        .branch-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .branch-table tr:hover td {
+            background: #f9fbfd;
+        }
+
+        /* FOOTER */
+        footer{
+            background:#04101d;
+            text-align:center;
+            padding:25px;
+            color:#bbb;
+            font-size:15px;
+        }
+
+        /* RESPONSIVE BREAKPOINTS */
+        @media(max-width:992px){
+            .hero-content,
+            .about-wrapper,
+            .contact-wrapper{
+                grid-template-columns:1fr;
+            }
+            .hero-text h1{
+                font-size:50px;
+            }
+            .section-title h2,
+            .about-text h2,
+            .contact-info h2,
+            .cta h2{
+                font-size:38px;
+            }
+            nav{
+                display:none;
+            }
+            header{
+                justify-content: center;
+            }
+        }
+
+        @media(max-width:600px){
+            .hero-text h1{
+                font-size:38px;
+            }
+            .hero-text p,
+            .section-title p,
+            .cta p{
+                font-size:16px;
+            }
+            .logo-img{
+                height:45px;
+            }
+            .btn{
+                width:100%;
+                justify-content:center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <a href="#" class="logo-container">
+            <img src="logo.png" alt="NeerXpress Logo" class="logo-img"
+        </a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#franchise">Branches</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h4>🚚 Trusted Courier Partner</h4>
+                <h1>Fast. Reliable. <span>Delivered.</span></h1>
+                <p>
+                    NeerXpress Logistic & Delivery provides fast, secure and professional courier services across Nepal and worldwide. Your parcel is our responsibility.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/9779709392891" target="_blank" class="btn btn-primary">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+                    </a>
+                    <a href="tel:9709392891" class="btn btn-primary">
+                        <i class="fa-solid fa-phone"></i> Call Now
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fa-solid fa-box"></i> Book Pickup
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="logistic.png.jpg" alt="NeerXpress Logistic & Delivery">
+            </div>
+        </div>
+    </section>
+</body>
+    <!-- STATS SECTION -->
+    <section class="stats">
+        <div class="stats-wrapper">
+            <div class="stat-card">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h2>24/7</h2>
+                <p>Fast Delivery Support</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-earth-asia"></i>
+                <h2>Worldwide</h2>
+                <p>International Shipping</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-location-dot"></i>
+                <h2>500+</h2>
+                <p>Delivery Locations</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-box-open"></i>
+                <h2>100%</h2>
+                <p>Safe Parcel Handling</p>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>Our <span>Services</span></h2>
+            <p>Professional courier and logistics services for personal and business delivery.</p>
+        </div>
+        <div class="service-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-truck"></i>
+                <h3>Fast Delivery</h3>
+                <p>Quick and reliable parcel delivery service inside city and nationwide.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-globe"></i>
+                <h3>International Shipping</h3>
+                <p>Send parcels safely from Nepal to countries around the world.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-box"></i>
+                <h3>Safe Packaging</h3>
+                <p>Professional handling and secure packaging for every parcel.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <h3>Real-Time Tracking</h3>
+                <p>Track your shipment anytime and know parcel delivery status instantly.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <h3>Cash On Delivery</h3>
+                <p>COD service available for online business and customer convenience.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-motorcycle"></i>
+                <h3>Door to Door Service</h3>
+                <p>Pickup and delivery directly from your home, office or business location.</p>
+            </div>
+        </div>
+    </section>
+<!-- Popup 1 -->
+<div id="popup1" class="popup-overlay">
+    <div class="popup-content">
+        <span class="close-btn" onclick="showSecondPopup()">&times;</span>
+        <img src="Neerxpressoffer.png" alt="NeerXpress Offer">
+    </div>
+</div>
+
+<!-- Popup 2 -->
+<div id="popup2" class="popup-overlay" style="display:none;">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closeSecondPopup()">&times;</span>
+        <img src="Neerxpresspost.jpg" alt="NeerXpress Post">
+    </div>
+</div>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
-html{scroll-behavior:smooth;}
-body{background:#f5f8fb;color:#111;overflow-x:hidden;}
-
-:root{
---pink:#ff0f6d;
---teal:#00a8a8;
---dark:#081828;
---light:#f5f8fb;
-}
-
-/* HEADER */
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:rgba(8,24,40,0.95);
-backdrop-filter:blur(10px);
-padding:12px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:999;
-}
-
-.logo-img{height:55px;}
-
-nav a{
-color:#fff;
-margin-left:25px;
-text-decoration:none;
-font-weight:500;
-}
-
-nav a:hover{color:var(--pink);}
-
-/* HERO */
-.hero{
-min-height:100vh;
-background:linear-gradient(rgba(8,24,40,0.8),rgba(8,24,40,0.8)),url('logistic.png.jpg');
-background-size:cover;
-display:flex;
-align-items:center;
-padding:140px 8% 60px;
-}
-
-.hero-content{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-color:#fff;
-}
-
-.hero-text h1{font-size:60px;}
-.hero-text span{color:var(--teal);}
-
-.btn{
-display:inline-block;
-padding:12px 25px;
-border-radius:30px;
-text-decoration:none;
-margin-top:10px;
-font-weight:600;
-}
-
-.btn-primary{background:var(--pink);color:#fff;}
-.btn-secondary{border:2px solid #fff;color:#fff;}
-
-/* MIDDLE BANNER */
-.middle-banner{
-padding:50px 8%;
-background:#fff;
-}
-
-.banner-container{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
-
-.banner-container img{
-width:320px;
-max-width:100%;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);
-}
-
-/* SERVICES */
-.services{
-padding:80px 8%;
-background:#eef4f7;
-}
-
-.service-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.service-card{
-background:#fff;
-padding:30px;
-border-radius:15px;
-transition:0.3s;
-}
-
-.service-card:hover{
-transform:translateY(-6px);
-}
-
-/* POPUP */
 .popup-overlay{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:9999;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
 }
 
 .popup-content{
-background:#fff;
-padding:10px;
-border-radius:10px;
-max-width:600px;
-width:90%;
-position:relative;
+    background:#fff;
+    padding:10px;
+    border-radius:10px;
+    width:90%;
+    max-width:700px;
+    position:relative;
 }
 
-.popup-content img{width:100%;border-radius:8px;}
+.popup-content img{
+    width:100%;
+    border-radius:8px;
+    display:block;
+}
 
 .close-btn{
-position:absolute;
-right:10px;
-top:5px;
-font-size:30px;
-cursor:pointer;
-}
-
-/* CONTACT */
-.contact{
-padding:80px 8%;
-text-align:center;
-background:#081828;
-color:#fff;
-}
-
-/* FOOTER */
-footer{
-text-align:center;
-padding:20px;
-background:#06121f;
-color:#aaa;
+    position:absolute;
+    top:5px;
+    right:12px;
+    font-size:32px;
+    font-weight:bold;
+    cursor:pointer;
+    color:#000;
 }
 </style>
-</head>
-
-<body>
-
-<!-- HEADER -->
-<header>
-<img src="logo.png" class="logo-img" alt="NeerXpress Logo">
-
-<nav>
-<a href="#home">Home</a>
-<a href="#services">Services</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
-
-<!-- HERO -->
-<section class="hero" id="home">
-<div class="hero-content">
-
-<div class="hero-text">
-<h4 style="color:var(--pink)">Trusted Courier Partner</h4>
-<h1>Fast & Reliable <span>Delivery</span></h1>
-<p>We deliver parcels safely across Nepal & worldwide with full tracking support.</p>
-
-<a href="https://wa.me/9779709392891" class="btn btn-primary">WhatsApp</a>
-<a href="tel:9709392891" class="btn btn-secondary">Call Now</a>
-</div>
-
-</div>
-</section>
-
-<!-- MIDDLE BANNER -->
-<section class="middle-banner">
-<div class="banner-container">
-<img src="International.png" alt="International Delivery">
-<img src="Online.png" alt="Online Services">
-<img src="Vendor.png" alt="Vendor Partner">
-</div>
-</section>
-
-<!-- SERVICES -->
-<section class="services" id="services">
-<h2 style="text-align:center;margin-bottom:30px;">Our Services</h2>
-
-<div class="service-grid">
-<div class="service-card">🚚 Fast Delivery</div>
-<div class="service-card">🌍 International Shipping</div>
-<div class="service-card">📦 Safe Packaging</div>
-<div class="service-card">🏠 Door Delivery</div>
-<div class="service-card">💰 COD Service</div>
-<div class="service-card">📍 Real-time Tracking</div>
-</div>
-</section>
-
-<!-- POPUP -->
-<div id="popup1" class="popup-overlay">
-<div class="popup-content">
-<span class="close-btn" onclick="this.parentElement.parentElement.style.display='none'">×</span>
-<img src="Neerxpressoffer.png" alt="Offer">
-</div>
-</div>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-<h2>Contact Us</h2>
-<p>📞 9709392891</p>
-<p>📧 neerxpress@gmail.com</p>
-<p>📍Buddha Chowk,Bhairahawa Nepal</p>
-</section>
-
-<!-- FOOTER -->
-<footer>
-© 2026 NeerXpress Logistic & Delivery | All Rights Reserved | Design by Sharma Digital
-</footer>
 
 <script>
-setTimeout(()=>{
-document.getElementById("popup1").style.display="flex";
-},2000);
+function showSecondPopup() {
+    document.getElementById("popup1").style.display = "none";
+    document.getElementById("popup2").style.display = "flex";
+}
+
+function closeSecondPopup() {
+    document.getElementById("popup2").style.display = "none";
+}
 </script>
+</div>
+
+<style>
+.popup-ad {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 9999;
+}
+
+.popup-ad img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.close-btn {
+    float: right;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: bold;
+}
+</style>
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+        <div class="about-wrapper">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1974&auto=format&fit=crop" alt="Courier Service">
+            </div>
+            <div class="about-text">
+                <h2>Why Choose <span>NeerXpress?</span></h2>
+                <p>
+                    We are committed to delivering your parcels quickly, safely and professionally. NeerXpress Logistic & Delivery provides modern courier services with customer satisfaction as our top priority.
+                </p>
+                <p>
+                    From local parcel delivery to international shipping, we help businesses, schools, banks and individuals with trusted logistics solutions.
+                </p>
+                <div class="about-list">
+                    <div><i class="fa-solid fa-check"></i> Fast & Secure Delivery</div>
+                    <div><i class="fa-solid fa-check"></i> Professional Customer Support</div>
+                    <div><i class="fa-solid fa-check"></i> Affordable Courier Charges</div>
+                    <div><i class="fa-solid fa-check"></i> Trusted International Shipping</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION (CTA) -->
+    <section class="cta">
+        <h2>📦 Ready To Send Your Parcel?</h2>
+        <p>Book your courier today with NeerXpress Logistic & Delivery.</p>
+        <p style="margin:20px 0; font-size:32px; font-weight:800; tracking: 1px;">📞 9709392891</p>
+        <a href="tel:9709392891" class="btn btn-primary">
+            <i class="fa-solid fa-phone"></i> Call Us Today
+        </a>
+    </section>
+
+    <!-- CUSTOMER REVIEWS SECTION -->
+    <section class="services" id="reviews">
+        <div class="section-title">
+            <h2>Customer <span>Reviews</span></h2>
+            <p>What our customers say about NeerXpress Logistic & Delivery</p>
+        </div>
+        <div class="service-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-star" style="color:#f1c40f; font-size: 24px;"></i>
+                <h3 style="margin-top:10px;">Fast Delivery</h3>
+                <p>“Very fast and secure service. My parcel arrived on time without any damage. Highly recommended.”</p>
+                <h4 style="margin-top:15px;color:#ff0f6d;">— Rajesh Sharma</h4>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-star" style="color:#f1c40f; font-size: 24px;"></i>
+                <h3 style="margin-top:10px;">Trusted Service</h3>
+                <p>“Best courier service in Bhairahawa. Staff are friendly and professional.”</p>
+                <h4 style="margin-top:15px;color:#ff0f6d;">— Sushma KC</h4>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-star" style="color:#f1c40f; font-size: 24px;"></i>
+                <h3 style="margin-top:10px;">International Shipping</h3>
+                <p>“I sent parcels abroad safely with real-time tracking support. Amazing experience.”</p>
+                <h4 style="margin-top:15px;color:#ff0f6d;">— Anil Thapa</h4>
+            </div>
+        </div>
+    </section>
+ </html>
+    <!-- FRANCHISE BRANCHES SECTION -->
+    <section class="services" id="franchise" style="background:#eef4f7; border-top: 1px solid #e2e8f0;">
+        <div class="section-title">
+            <h2>Our <span>Franchise Branches</span></h2>
+            <p>Click below to view all NeerXpress branches across Nepal</p>
+        </div>
+        <div style="text-align:center; margin-bottom:30px;">
+            <button onclick="toggleBranches()" class="btn btn-primary">
+                📍 View Branch List
+            </button>
+        </div>
+
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>Contact Us</h2>
+                <p><i class="fa-solid fa-location-dot"></i> <a href="https://maps.google.com/?q=Buddha+Chowk+Bhairahawa" target="_blank" style="color:#ddd;text-decoration:none;">Buddha Chowk, Bhairahawa</a></p>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:9709392891" style="color:#ddd;text-decoration:none;">9709392891</a></p>
+                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:neerxpressbhwbranch@gmail.com" style="color:#ddd;text-decoration:none;">neerxpressbhwbranch@gmail.com</a></p>
+                <p><i class="fa-solid fa-clock"></i> Open Everyday - Fast Support</p>
+
+                <div class="social-links">
+                    <a href="https://www.facebook.com/@neerxpressbhairahawa" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/neerxpressbhairahawa" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@neerxpressbhairahawa" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+                </form>
+            </div><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become a Franchise Owner</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+    }
+
+    .franchise-section {
+        text-align: center;
+        padding: 50px 20px;
+        background: white;
+    }
+
+    .franchise-section h1 {
+        color: #1a1a1a;
+        margin-bottom: 10px;
+    }
+
+    .franchise-section p {
+        color: #555;
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .franchise-image {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 12px 25px;
+        background: #25D366;
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        border-radius: 8px;
+    }
+
+    .btn:hover {
+        background: #1ebe5d;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="franchise-section">
+
+    <h1>Become a Franchise Owner in Your City</h1>
+
+    <p>Start your own business with us and grow your income. Join our fast-growing network today!</p>
+
+    <!-- Your Image -->
+    <img src="franchise-image.jpg" alt="Franchise Opportunity" class="franchise-image">
+
+    <br>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/9779816120608" target="_blank" class="btn">
+        Reach Us on WhatsApp
+    </a>
+
+</div>
 
 </body>
+    <iframe src="https://www.google.com/maps/embed?pb=!3m2!1sen!2snp!4v1780822056830!5m2!1sen!2snp!6m8!1m7!1sJfx9697xdA7gJXZsGbfWOQ!2m2!1d27.51567865639537!2d83.45314151046064!3f39.29026186175451!4f-2.2217603501550798!5f0.7820865974627469"
+width="600" height="450"
+style="border:0;"
+allowfullscreen=""
+loading="lazy"
+referrerpolicy="no-referrer-when-downgrade">
+</iframe>
 </html>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+<div class="footer-col">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</body>
+</html>>
+    <footer>
+        &copy; 2026 NeerXpress Logistic & Delivery | All Rights Reserved. Developed by Sharma Digital
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        function toggleBranches(){
+            const table = document.getElementById('branchTable');
+            if(table.style.display === 'none' || table.style.display === ''){
+                table.style.display = 'block';
+                table.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                table.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
+<section class="middle-banner">
+    <div class="banner-container">
+        <img src="International.png" alt="International Delivery">
+        <img src="Online.png" alt="Online Services">
+        <img src="Vendor.png" alt="Vendor Partner">
