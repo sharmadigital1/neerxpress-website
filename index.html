@@ -597,6 +597,63 @@
     </section>
 <body>
   <!DOCTYPE html>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Middle Banner Images</title>
+
+<style>
+.middle-banner {
+    width: 100%;
+    padding: 30px 0;
+    background: #f8f8f8;
+}
+
+.banner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.banner-container img {
+    width: 350px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.banner-container img:hover {
+    transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+    .banner-container img {
+        width: 95%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="middle-banner">
+    <div class="banner-container">
+        <img src="International.png" alt="International Delivery">
+        <img src="Online.png" alt="Online Services">
+        <img src="Vendor.png" alt="Vendor Partner">
+    </div>
+</section>
+
+</body>
+    
 <html>
 <head>
     
@@ -623,13 +680,7 @@
                 <i class="fa-solid fa-box-open"></i>
                 <h2>100%</h2>
                 <p>Safe Parcel Handling</p>
-            <section class="middle-banner">
-    <div class="banner-container">
-        <img src="International.png" alt="International Delivery">
-        <img src="Online.png" alt="Online Services">
-        <img src="Vendor.png" alt="Vendor Partner">
-    </div>
-</section>
+
     <!-- SERVICES SECTION -->
     <section class="services" id="services">
         <div class="section-title">
